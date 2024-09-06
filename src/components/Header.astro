@@ -1,5 +1,40 @@
 ---
+import Link from "../components/Link.astro";
 ---
-<div>
-Header - tilføj navigation mm.
+
+<div x-data="{showmenu: false}" class="p-4 fixed lg:static w-full bg-slate200">
+  <div id="navbar" class="flex flex-row justify-between">
+    <div id="logo" class="">
+      <a href="#link1">site logo</a>
+    </div>
+    <nav id="desktopmenu" class="hidden lg:block">
+      <ul class="flex flex-row gap-4">
+        <li class="">
+          <Link herf="#" Link>Københavnerbilleder</Link>
+          <li>
+            <Link herf="#" Link>Bogens indhold</Link>
+            <li>
+              <Link herf="#" Link>Forfatteren</Link>
+              <li><Link herf="#" Link>Køb nu</Link></li>
+            </li>
+            <button id="burgermenu" class="lg:hidden" x-on:click="showmenu = ! showmenu">Menu</button>
+          </li>
+          <nav id="mobilmenu" class="flex flex-col content-center pt-4" x-show="showmenu" x-transition x-on:click="showmenu = false" x-on:click.outside="showmenu">
+            <ul>
+              <li class="text-center py-2 border-y-2">
+                <Link herf="#" Link>1</Link>
+                <li class="text-center py-2 border-y-2">
+                  <Link herf="#" Link>2</Link>
+                  <li class="text-center py-2 border-y-2">
+                    <Link herf="#" Link>3</Link>
+                    <li class="text-center py-2 border-y-2"><Link herf="#" Link>4</Link></li>
+                  </li>
+                </li>
+              </li>
+            </ul>
+          </nav>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>
